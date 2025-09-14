@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+//<1>
+import "google/protobuf/empty.proto";
+
+//<2>
+option java_package = "com.example.service.grpc";
+option java_outer_classname = "AdoptionsProto" ;
+option java_multiple_files = true;
+
+// <3>
+message Dog {
+  int32 id = 1;
+  string name = 2;
+  string owner = 3;
+  string description = 4;
+}
+
+message DogsResponse {
+  // <4>
+  repeated Dog dogs = 1;
+}
+
+// <5>
+service Adoptions {
+  rpc All (google.protobuf.Empty) returns (DogsResponse);
+}

@@ -1,0 +1,19 @@
+type Dog {
+    id :Int
+    name: String
+    owner: String
+    description: String
+    shelter: Shelter
+}
+
+type Shelter {
+    city: String
+}
+
+type Query {
+    dogs :[Dog]
+}
+
+type Mutation {
+    adopt(id:Int, owner:String) : Boolean
+}
